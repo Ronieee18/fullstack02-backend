@@ -1,0 +1,1 @@
+a basic  full stack prject using appwrite services as backend .
