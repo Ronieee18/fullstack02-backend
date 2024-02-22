@@ -116,6 +116,7 @@ const login=asyncHandler(async(req,res)=>{
    const options={
       httpOnly:true,
       secure:true,
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       domain: '.fullstack02-backend.onrender.com',
    }
    return res
@@ -153,6 +154,7 @@ const logout=asyncHandler(async(req,res)=>{
    const options={
       httpOnly:true,
       secure:true,
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       domain: '.fullstack02-backend.onrender.com',
    }
 
@@ -188,6 +190,7 @@ const refreshAccessToken=asyncHandler(async(req,res)=>{
       const options={
          httpOnly:true,
          secure:true,
+         expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
          domain: '.fullstack02-backend.onrender.com',
 
       }
