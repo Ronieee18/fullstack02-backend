@@ -185,7 +185,8 @@ const refreshAccessToken=asyncHandler(async(req,res)=>{
       //create a new access token and update the users refresh token
       const options={
          httpOnly:true,
-         secure:true,
+         // secure:true,
+         domain: '.fullstack02-backend.onrender.com',
 
       }
       const {accessToken,newRefreshToken}=generateAccessTokenAndRefreshToken(user._id)
