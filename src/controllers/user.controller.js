@@ -115,7 +115,7 @@ const login=asyncHandler(async(req,res)=>{
    const loggedUser=await User.findById(user._id).select("-password -refreshToken")
    const options={
       httpOnly:true,
-      // secure:true,
+      secure:true,
       domain: '.fullstack02-backend.onrender.com',
    }
    return res
@@ -152,7 +152,7 @@ const logout=asyncHandler(async(req,res)=>{
    
    const options={
       httpOnly:true,
-      // secure:true,
+      secure:true,
       domain: '.fullstack02-backend.onrender.com',
    }
 
@@ -187,7 +187,7 @@ const refreshAccessToken=asyncHandler(async(req,res)=>{
       //create a new access token and update the users refresh token
       const options={
          httpOnly:true,
-         // secure:true,
+         secure:true,
          domain: '.fullstack02-backend.onrender.com',
 
       }
@@ -226,7 +226,7 @@ const changePassword=asyncHandler(async(req,res)=>{
 })
 
 const getCurrentUser=asyncHandler(async(req,res)=>{
-   // console.log(req.cookies)
+   console.log(req.cookies)
    return res
       .status(200)
       .json(
