@@ -116,6 +116,7 @@ const login=asyncHandler(async(req,res)=>{
    const options={
       httpOnly:true,
       // secure:true,
+      domain: '.fullstack02-backend.onrender.com',
    }
    return res
       .status(200)
@@ -151,7 +152,8 @@ const logout=asyncHandler(async(req,res)=>{
    
    const options={
       httpOnly:true,
-      secure:true,
+      // secure:true,
+      domain: '.fullstack02-backend.onrender.com',
    }
 
    return res
