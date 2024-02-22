@@ -4,7 +4,7 @@ import {User} from "../models/user.model.js"
 import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import jwt from 'jsonwebtoken'
-import mongoose from "mongoose"
+import mongoose from "mongoose"  
 
 
 const generateAccessTokenAndRefreshToken=async(userId)=>{
@@ -100,7 +100,7 @@ const login=asyncHandler(async(req,res)=>{
       throw new ApiError(400,"email and username is required");
    }
    const user=await User.findOne({
-      $or:[{email},{username}]
+      $and:[{email},{username}]
    })
    if(!user){
       throw new ApiError(404,"user not found")
@@ -115,7 +115,7 @@ const login=asyncHandler(async(req,res)=>{
    const loggedUser=await User.findById(user._id).select("-password -refreshToken")
    const options={
       httpOnly:true,
-      secure:true,
+      // secure:true,
    }
    return res
       .status(200)
