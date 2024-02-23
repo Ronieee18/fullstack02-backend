@@ -14,6 +14,14 @@ app.use(express.urlencoded({extended:true,limit:"20kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://superlative-licorice-9598b9.netlify.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+});
+
 // routes
 import userrouter from './routes/user.route.js'
 import videorouter from "./routes/video.route.js"
