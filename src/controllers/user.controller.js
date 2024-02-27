@@ -115,7 +115,7 @@ const login=asyncHandler(async(req,res)=>{
    const loggedUser=await User.findById(user._id).select("-password -refreshToken")
    const options={
       httpOnly:true,
-      secure:false,
+      secure:true,
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       
    }
@@ -153,7 +153,7 @@ const logout=asyncHandler(async(req,res)=>{
    
    const options={
       httpOnly:true,
-      secure:false,
+      secure:true,
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       
    }
@@ -189,7 +189,7 @@ const refreshAccessToken=asyncHandler(async(req,res)=>{
       //create a new access token and update the users refresh token
       const options={
          httpOnly:true,
-         secure:false,
+         secure:true,
          expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
          
 
