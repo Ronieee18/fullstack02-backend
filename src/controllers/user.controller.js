@@ -117,6 +117,7 @@ const login=asyncHandler(async(req,res)=>{
       httpOnly:true,
       secure:true,
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      domain: '.netlify.app',
       
    }
    return res
@@ -155,6 +156,7 @@ const logout=asyncHandler(async(req,res)=>{
       httpOnly:true,
       secure:true,
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      domain: '.netlify.app',
       
    }
 
@@ -191,6 +193,7 @@ const refreshAccessToken=asyncHandler(async(req,res)=>{
          httpOnly:true,
          secure:true,
          expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+         domain: '.netlify.app',
          
 
       }
